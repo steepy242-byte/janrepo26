@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Picture Upload</title>
+</head>
+<body>
+
+<div class="container">
+    <h2>Upload Profile Picture</h2>
+    <p class="info">Only image files are allowed (JPG, PNG).</p>
+
+    <form action="upload.php" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".jpg,.jpeg,.png" required>
+        <br><br>
+        <button type="submit">Upload</button>
+    </form>
+</div>
+
+
+</body>
+<style>
+    body {
+    background: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 400px;
+    margin: 100px auto;
+    padding: 25px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.info {
+    font-size: 14px;
+    color: #bbbbbb;
+}
+
+input[type="file"] {
+    margin-top: 15px;
+}
+
+button {
+    padding: 10px 25px;
+    background: #00bcd4;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0097a7;
+}
+
+</style>
+</html>
