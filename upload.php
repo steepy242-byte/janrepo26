@@ -1,4 +1,8 @@
 <?php
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $upload_dir = "uploads/";
 $flag_file  = "flag.txt";
 
@@ -25,20 +29,29 @@ if (isset($_FILES["file"]) && !empty($_FILES["file"]["name"])) {
 
         move_uploaded_file($file_tmp, $upload_dir . $file_name);
 
+        if (!move_uploaded_file($file_tmp, $upload_dir . $file_name)) {
+    echo "<pre>UPLOAD FAILED</pre>";
+    echo "<pre>";
+    print_r($_FILES);
+    echo "</pre>";
+    exit;
+}
+
+
         echo "<h3>✅ Upload successful</h3>";
         echo "<p>File: <b>$file_name</b></p>";
         echo "<p>MIME: <b>$file_type</b></p>";
 
         // 🎯 FLAG CONDITION
         if (strpos($file_name, ".php") !== false) {
-            echo "<h2>🎉 FLAG</h2>";
+            
             echo "<pre>" . file_get_contents($flag_file) . "</pre>";
         } else {
-            echo "<p>❌ This looks like a normal image.</p>";
+            echo "<p>This looks like a normal image.</p>";
         }
 
     } else {
-        echo "<p>❌ Only image files allowed</p>";
+        echo "<p> Only image files allowed</p>";
     }
 
 } else {
