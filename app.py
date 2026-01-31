@@ -25,7 +25,7 @@ button { padding:10px 20px; background:#00bcd4; border:none; border-radius:5px; 
 <body>
 <div class="container">
 <h2>Upload Profile Picture</h2>
-<p>Only JPG/PNG allowed</p>
+<p>Convert your pdf file to SVG</p>
 <form method="POST" enctype="multipart/form-data">
 <input type="file" name="file" required><br><br>
 <button type="submit">Upload</button>
